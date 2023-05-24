@@ -1,5 +1,5 @@
 {
-  "name": "swag/plugin-skeleton",
+  "name": "ict/ictech-search-orderby-document-number",
   "description": "Skeleton plugin",
   "type": "shopware-platform-plugin",
   "license": "MIT",
@@ -8,11 +8,17 @@
       "ICTECHSearchOrderbyDocumentNumber\\": "src/"
     }
   },
-  "extra": {
+    "authors": [
+        {
+            "name" : "iCreateivetechnologies"
+        }
+    ],
+    "extra": {
     "shopware-plugin-class": "ICTECHSearchOrderbyDocumentNumber\\ICTECHSearchOrderbyDocumentNumber",
-    "label": {
-      "de-DE": "Skeleton plugin",
-      "en-GB": "Skeleton plugin"
+    "plugin-icon": "searchorder.png",
+      "label": {
+      "de-DE": "Suchen Sie Bestellungen nach Dokumentnummer",
+      "en-GB": "Search Orders by Document Number"
     }
   }
 }

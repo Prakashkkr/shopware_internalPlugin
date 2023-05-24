@@ -1,0 +1,16 @@
+@import "~scss/variables";
+
+$sw-order-list-color-error: $color-crimson-500;
+$sw-order-list-color-success: $color-emerald-500;
+
+.sw-order-list {
+    .sw-simple-search-field {
+         display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #f1f1f1;
+      padding:  4px;
+        border: none;
+        margin-left: 5px;
+    }
+}

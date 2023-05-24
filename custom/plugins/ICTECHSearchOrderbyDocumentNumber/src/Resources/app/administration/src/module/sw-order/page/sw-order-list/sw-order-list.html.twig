@@ -35,8 +35,9 @@
                         {% block sw_order_module_toolbar_search_field %}
                             <sw-simple-search-field
                                     v-model="searchTerm"
-                                    class="sw-order-list"
+                                    class="sw_order_list_search"
                                     size="small"
+                                    placeholder="Search document number"
                                     variant="form"
                                     @search-term-change="onSearchTermChange"
                             />
