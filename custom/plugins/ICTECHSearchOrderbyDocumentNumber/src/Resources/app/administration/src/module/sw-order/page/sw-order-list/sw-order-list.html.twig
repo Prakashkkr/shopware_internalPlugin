@@ -31,7 +31,7 @@
                         >
                             ({{ total }})
                         </span>
-                        <!--search box -->
+                        <!--search document number -->
                         {% block sw_order_module_toolbar_search_field %}
                             <sw-simple-search-field
                                     v-model="searchTerm"
@@ -42,7 +42,6 @@
                                     @search-term-change="onSearchTermChange"
                             />
                         {% endblock %}
-                        <!--search box -->
                     {% endblock %}
                 </h2>
             {% endblock %}

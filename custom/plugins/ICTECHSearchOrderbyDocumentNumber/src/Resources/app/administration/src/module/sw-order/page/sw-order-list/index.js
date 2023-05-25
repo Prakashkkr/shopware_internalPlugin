@@ -141,21 +141,14 @@ Shopware.Component.override('sw-order-list', {
             criteria.addAssociation('transactions');
             criteria.addAssociation('deliveries');
             criteria.getAssociation('transactions').addSorting(Criteria.sort('createdAt'));
-
-            if(this.searchTerm == 0){
-                this.orderRepository.search((criteria)).then((res)=>{
-                    this.total = res.total;
-                    this.orders = res;
-                    this.isLoading = false;
-                })
-            }else{
-                criteria.addFilter(Criteria.equals('documents.config.documentNumber',this.searchTerm));
-                this.orderRepository.search((criteria)).then((res)=>{
-                    this.total = res.total;
-                    this.orders = res;
-                    this.isLoading = false;
-                })
+            if(this.searchTerm != 0){
+                criteria.addFilter(Criteria.prefix('documents.config.documentNumber',this.searchTerm));
             }
+            this.orderRepository.search((criteria)).then((res)=>{
+                this.total = res.total;
+                this.orders = res;
+                this.isLoading = false;
+            })
         },
         loadFilterValues() {
             this.filterLoading = true;
