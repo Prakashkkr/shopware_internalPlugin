@@ -32,14 +32,11 @@
     },
     "manufacturerLink": {
         "de-DE": "https://www.icreativetechnologies.com",
-        "en-GB": "https://www.icreativetechnologies.com",
-        "nl-NL": "https://www.icreativetechnologies.com"
+        "en-GB": "https://www.icreativetechnologies.com"
     },
     "supportLink": {
         "de-DE": "https://support.icreativetechnologies.com/",
-        "en-GB": "https://support.icreativetechnologies.com/",
-        "nl-NL": "https://support.icreativetechnologies.com/"
-
+        "en-GB": "https://support.icreativetechnologies.com/"
     }
   }
 }

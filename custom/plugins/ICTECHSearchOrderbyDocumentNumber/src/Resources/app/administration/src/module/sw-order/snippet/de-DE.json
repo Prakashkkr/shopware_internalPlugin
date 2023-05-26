@@ -1,0 +1,12 @@
+{
+    "sw-order": {
+        "placeholderSearchField": "Wählen Sie Dokumentnummer suchen aus..."
+    },
+    "sw-privileges": {
+        "permissions": {
+            "order": {
+                "label": "Orders"
+            }
+        }
+    }
+}

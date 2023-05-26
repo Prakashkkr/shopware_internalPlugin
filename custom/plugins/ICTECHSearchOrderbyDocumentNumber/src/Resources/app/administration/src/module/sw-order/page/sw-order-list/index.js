@@ -1,5 +1,4 @@
 import template from './sw-order-list.html.twig';
-import './sw-order-list.scss'
 const { Component, Mixin } = Shopware;
 const { Criteria } = Shopware.Data;
 
@@ -7,12 +6,8 @@ Shopware.Component.override('sw-order-list', {
     template,
 
     inject: [
-        'documentService',
         'repositoryFactory',
-        'stateStyleDataProviderService',
         'acl',
-        'filterFactory',
-        'feature',
     ],
 
     mixins: [
@@ -29,45 +24,9 @@ Shopware.Component.override('sw-order-list', {
             searchTerm: '',
             sortBy: 'orderDateTime',
             sortDirection: 'DESC',
-            isLoading: false,
-            filterLoading: false,
-            showDeleteModal: false,
-            availableAffiliateCodes: [],
-            availableCampaignCodes: [],
-
-            /** @deprecated tag:v6.5.0 - values will be handled by filterFactory */
-            affiliateCodeFilter: [],
-
-            /** @deprecated tag:v6.5.0 - values will be handled by filterFactory */
-            campaignCodeFilter: [],
-
             filterCriteria: [],
-            defaultFilters: [
-                'affiliate-code-filter',
-                'campaign-code-filter',
-                'document-filter',
-                'order-date-filter',
-                'order-value-filter',
-                'status-filter',
-                'payment-status-filter',
-                'delivery-status-filter',
-                'payment-method-filter',
-                'shipping-method-filter',
-                'sales-channel-filter',
-                'billing-country-filter',
-                'customer-group-filter',
-                'shipping-country-filter',
-                'customer-group-filter',
-                'tag-filter',
-                'line-item-filter',
-            ],
-            storeKey: 'grid.filter.order',
-            activeFilterNumber: 0,
-            showBulkEditModal: false,
-            searchConfigEntity: 'order',
         };
     },
-
 
     metaInfo() {
         return {
@@ -79,7 +38,6 @@ Shopware.Component.override('sw-order-list', {
         orderRepository(){
           return this.repositoryFactory.create('order');
         },
-
         orderColumns() {
             return this.getOrderColumns();
         },
@@ -150,19 +108,6 @@ Shopware.Component.override('sw-order-list', {
                 this.isLoading = false;
             })
         },
-        loadFilterValues() {
-            this.filterLoading = true;
-
-            return this.orderRepository.search(this.filterSelectCriteria).then(({ aggregations }) => {
-                this.availableAffiliateCodes = aggregations?.affiliateCodes?.buckets ?? [];
-                this.availableCampaignCodes = aggregations?.campaignCodes?.buckets ?? [];
-                this.filterLoading = false;
-
-                return aggregations;
-            }).catch(() => {
-                this.filterLoading = false;
-            });
-        },
         async getList() {
 
             this.isLoading = true;
@@ -191,11 +136,6 @@ Shopware.Component.override('sw-order-list', {
             } catch {
                 this.isLoading = false;
             }
-        },
-        updateCriteria(criteria) {
-            this.page = 1;
-
-            this.filterCriteria = criteria;
         },
     },
 });

@@ -31,20 +31,27 @@
                         >
                             ({{ total }})
                         </span>
-                        <!--search document number -->
-                        {% block sw_order_module_toolbar_search_field %}
-                            <sw-simple-search-field
-                                    v-model="searchTerm"
-                                    class="sw_order_list_search"
-                                    size="small"
-                                    placeholder="Search document number"
-                                    variant="form"
-                                    @search-term-change="onSearchTermChange"
-                            />
-                        {% endblock %}
+
                     {% endblock %}
                 </h2>
+            <sw-container
+                columns="1fr minmax(75px, max-content)"
+                gap="0 5%"
+            >
+                <!--search document number -->
+                {% block sw_order_module_toolbar_search_field %}
+                    <sw-simple-search-field
+                        v-model="searchTerm"
+                        size="small"
+                        class="sw_order_list_search"
+                        :placeholder="$tc('sw-order.placeholderSearchField')"
+                        variant="form"
+                        @search-term-change="onSearchTermChange"
+                    />
+                {% endblock %}
+
             {% endblock %}
+            </sw-container>
         </template>
     {% endblock %}
 
