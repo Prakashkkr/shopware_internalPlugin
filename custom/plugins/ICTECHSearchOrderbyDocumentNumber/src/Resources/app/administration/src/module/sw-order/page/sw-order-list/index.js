@@ -1,4 +1,5 @@
 import template from './sw-order-list.html.twig';
+import './sw-order-list.scss';
 const { Component, Mixin } = Shopware;
 const { Criteria } = Shopware.Data;
 
