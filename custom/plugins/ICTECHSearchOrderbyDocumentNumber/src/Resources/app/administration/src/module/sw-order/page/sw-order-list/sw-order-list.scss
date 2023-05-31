@@ -18,3 +18,22 @@
   height: 27px;
   margin-bottom: 0;
 }
+.smart-bar__content {
+  .sw-container {
+    grid-template-columns: revert !important;
+    grid-template-rows: 66px 1fr !important;
+    padding-right: 10px;
+  }
+}
+.sw-page .smart-bar__header {
+  @media(max-width: 767px) {
+    flex: 1;
+    min-width: 100%;
+    width: 100%;
+  }
+}
+.sw-page .smart-bar__content {
+  @media(max-width: 767px) {
+    flex-wrap: wrap;
+  }
+}
